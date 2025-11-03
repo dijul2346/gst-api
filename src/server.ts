@@ -21,4 +21,4 @@ app.use("/users", userRoutes);
 app.use("/categories", taxRoutes);
 app.use("/transactions", trxRoutes);
 
-app.listen(5000, () => console.log('🚀 Server running on port ${PORT}'));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
