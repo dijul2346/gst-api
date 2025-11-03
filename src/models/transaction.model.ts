@@ -1,15 +1,14 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose from "mongoose";
 
-export interface ITransaction extends Document {
-  userId: mongoose.Types.ObjectId;
-  categoryId: mongoose.Types.ObjectId;
-  amount: number;
-}
+const transactionSchema = new mongoose.Schema(
+  {
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    categoryId: { type: mongoose.Schema.Types.ObjectId, ref: "TaxCategory", required: true },
+    amount: { type: Number, required: true },
+    taxAmount: { type: Number, required: true },  // GST value
+    totalAmount: { type: Number, required: true }, // amount + GST
+  },
+  { timestamps: true }
+);
 
-const transactionSchema = new Schema<ITransaction>({
-  userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
-  categoryId: { type: Schema.Types.ObjectId, ref: "TaxCategory", required: true },
-  amount: { type: Number, required: true }
-});
-
-export default mongoose.model<ITransaction>("Transaction", transactionSchema);
+export default mongoose.model("Transaction", transactionSchema);

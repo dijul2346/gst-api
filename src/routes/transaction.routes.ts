@@ -3,7 +3,7 @@ import { createTaxCategory, getTaxCategories } from "../controllers/taxCategory.
 
 const router = Router();
 
-router.post("/add", createTaxCategory);
-router.get("/get", getTaxCategories);
+router.post("/", createTaxCategory);
+router.get("/", getTaxCategories);
 
 export default router;

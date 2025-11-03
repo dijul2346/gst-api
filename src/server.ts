@@ -12,8 +12,8 @@ app.use(express.json());
 
 connectDB();
 
-app.use("/api/users", userRoutes);
-app.use("/api/categories", taxRoutes);
-app.use("/api/transactions", trxRoutes);
+app.use("/users", userRoutes);
+app.use("/categories", taxRoutes);
+app.use("/transactions", trxRoutes);
 
 app.listen(5000, () => console.log("🚀 Server running on port 5000"));
