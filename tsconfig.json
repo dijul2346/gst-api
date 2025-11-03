@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    // --- Module Configuration ---
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "es2020",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "types": ["node"], // Added "node" for types
+
+    // --- Build Paths ---
+    "outDir": "./dist",    // Output folder
+    "rootDir": "./src",  // Source code is in src
+
+    // --- Strictness & Style ---
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+
+    // --- Source Maps for Debugging ---
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true
+  },
+  // --- Tell 'tsc' what to compile ---
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

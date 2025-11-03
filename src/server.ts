@@ -8,11 +8,12 @@ import { connectDB } from "./config/db.js";
 import { swaggerDocs } from "./config/swagger.js";
 
 dotenv.config();
+const PORT = process.env.PORT || 5000;
 const app = express();
 app.use(express.json());
 
 // Setup Swagger UI (API docs)
-swaggerDocs(app,3000);
+swaggerDocs(app,Number(PORT));
 
 connectDB();
 
@@ -20,4 +21,4 @@ app.use("/users", userRoutes);
 app.use("/categories", taxRoutes);
 app.use("/transactions", trxRoutes);
 
-app.listen(5000, () => console.log("🚀 Server running on port 5000"));
+app.listen(5000, () => console.log('🚀 Server running on port ${PORT}'));
