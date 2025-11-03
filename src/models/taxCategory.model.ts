@@ -1,13 +1,8 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose from "mongoose";
 
-export interface ITaxCategory extends Document {
-  name: string;
-  rate: number;
-}
-
-const taxCategorySchema = new Schema<ITaxCategory>({
+const taxCategorySchema = new mongoose.Schema({
   name: { type: String, required: true },
   rate: { type: Number, required: true }
 });
 
-export default mongoose.model<ITaxCategory>("TaxCategory", taxCategorySchema);
+export default mongoose.model("TaxCategory", taxCategorySchema);
