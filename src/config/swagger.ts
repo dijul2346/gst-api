@@ -12,7 +12,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:5000",
+        url: "https://gst-api-t5l3.onrender.com",
       },
     ],
   },
