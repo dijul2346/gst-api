@@ -2,36 +2,31 @@ import type { Request, Response } from 'express';
 import Product from '../models/product.model.js';
 import TaxCategory from '../models/taxCategory.model.js';
 
-// --- Function to create a new product ---
+
 export const createProduct = async (req: Request, res: Response) => {
   try {
-    // User sends simple "taxCode" ("GST18"), not a long _id
     const { name, sku, basePrice, taxCode } = req.body;
-
-    // 1. Find the TaxCategory by its simple code
     const category = await TaxCategory.findOne({ code: taxCode });
     if (!category) {
       return res.status(404).json({ message: 'Invalid taxCode' });
     }
-
-    // 2. Create the product using the found category's _id
     const product = await Product.create({
       name,
       sku,
       basePrice,
-      taxCategoryId: category._id, // Save the actual reference
+      taxCategoryId: category._id,
     });
 
     res.status(201).json(product);
   } catch (error: any) {
-    if (error.code === 11000) { // Handle duplicate SKU
+    if (error.code === 11000) { 
       return res.status(400).json({ message: 'SKU already exists' });
     }
     res.status(400).json({ message: error.message });
   }
 };
 
-// --- Your "Check Price" route (using SKU) ---
+
 
 export const getProducts = async (req: Request, res: Response) => {
   try {
