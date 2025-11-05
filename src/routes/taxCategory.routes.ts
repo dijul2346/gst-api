@@ -1,12 +1,14 @@
 import { Router } from "express";
-import { createTaxCategory, getTaxCategories } from "../controllers/taxCategory.controllers.js";
+import { createTaxCategory, getTaxCategories,updateTaxCategory, // ✅ Add this
+  deleteTaxCategory } from "../controllers/taxCategory.controllers.js";
 
 
 const router = Router();
 
 router.get("/", getTaxCategories);
 router.post("/", createTaxCategory);
-
+router.put("/:id", updateTaxCategory);  
+router.delete("/:id", deleteTaxCategory);
 export default router;
 
 /**
