@@ -34,7 +34,7 @@ export default router;
  *                 example: "Dijul2"
  *               email:
  *                 type: string
- *                 example: """dijul2@example.com"
+ *                 example: "dijul2@example.com"
  *     responses:
  *       201:
  *         description: User created
