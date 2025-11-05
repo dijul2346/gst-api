@@ -24,56 +24,6 @@ export default router;
 
 /**
  * @swagger
- * components:
- *   schemas:
- *     TaxCategory:
- *       type: object
- *       required:
- *         - name
- *         - rate
- *         - code
- *       properties:
- *         _id:
- *           type: string
- *           description: The auto-generated MongoDB ID
- *         name:
- *           type: string
- *           description: The name of the tax slab
- *         rate:
- *           type: number
- *           description: The tax percentage (e.g., 18)
- *         code:
- *           type: string
- *           description: A unique, simple code for the slab (e.g., "GST18")
- *         __v:
- *           type: number
- *           description: Mongoose version key
- *       example:
- *         _id: "690af106ff799d0ed481a8c9"
- *         name: "GST 28%"
- *         rate: 28
- *         code: "GST28"
- *         __v: 0
- *     NewTaxCategory:
- *       type: object
- *       required:
- *         - name
- *         - rate
- *         - code
- *       properties:
- *         name:
- *           type: string
- *           example: "GST 28%"
- *         rate:
- *           type: number
- *           example: 28
- *         code:
- *           type: string
- *           example: "GST28"
- */
-
-/**
- * @swagger
  * /categories:
  *   post:
  *     summary: Create a new tax category
@@ -84,7 +34,21 @@ export default router;
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/NewTaxCategory'
+ *             type: object
+ *             required:
+ *               - name
+ *               - rate
+ *               - code
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: "GST 18%"
+ *               rate:
+ *                 type: number
+ *                 example: 18
+ *               code:
+ *                 type: string
+ *                 example: "GST18"
  *     responses:
  *       201:
  *         description: Category created successfully

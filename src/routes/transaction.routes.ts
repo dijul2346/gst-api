@@ -16,72 +16,7 @@ export default router;
  *     description: Create and manage transactions
  */
 /**
- * @swagger
- * components:
- *   schemas:
- *     Transaction:
- *       type: object
- *       properties:
- *         _id:
- *           type: string
- *         userId:
- *           type: object
- *           properties:
- *             _id:
- *               type: string
- *             name:
- *               type: string
- *             email:
- *               type: string
- *         items:
- *           type: array
- *           items:
- *             type: object
- *             properties:
- *               sku:
- *                 type: string
- *               name:
- *                 type: string
- *               quantity:
- *                 type: number
- *               basePrice:
- *                 type: number
- *               taxRate:
- *                 type: number
- *               gstAmount:
- *                 type: number
- *               totalAmount:
- *                 type: number
- *         totalSubtotal:
- *           type: number
- *         totalGstAmount:
- *           type: number
- *         finalTotalAmount:
- *           type: number
- *         createdAt:
- *           type: string
- *         updatedAt:
- *           type: string
- *       example:
- *         _id: "6908434c72f06d53b9b29349"
- *         userId:
- *           _id: "6908434c72f06d53b9b29349"
- *           name: "Dijul"
- *           email: "dijul@example.com"
- *         items:
- *           - sku: "MS-WL1"
- *             name: "Mouse - Wireless"
- *             quantity: 2
- *             basePrice: 800
- *             taxRate: 12
- *             gstAmount: 96
- *             totalAmount: 896
- *         totalSubtotal: 1600
- *         totalGstAmount: 192
- *         finalTotalAmount: 1792
- *         createdAt: "2025-11-05T17:00:00.000Z"
- *         updatedAt: "2025-11-05T17:00:00.000Z"
- */
+
 
 /**
  * @swagger
@@ -165,6 +100,7 @@ export default router;
  *         required: true
  *         schema:
  *           type: string
+ *           example: "6908434c72f06d53b9b29349"
  *         description: ID of the user
  *     responses:
  *       200:
